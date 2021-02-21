@@ -1,0 +1,16 @@
+<h1> Create Jobs </h1>
+<%= form_for (@jobs) do |j| %>
+<%= j.label :date %>
+<%= j.datetime_field :date %>
+<%= j.label :duration %>
+<%= j.number_field :duration %>
+<%= j.label :sitter %>
+<%= j.text_field :sitter %>
+<%= j.label :gaurdian %>
+<%= j.text_field :guardian %>
+<%= j.label :address %>
+<%= j.text_field :st_addr %>
+<%= j.label :num_kids %>
+<%= j.number_field :num_of_kids %>
+<%= j.submit %>
+<% end %>

@@ -5,7 +5,13 @@ class GuardiansController < ApplicationController
     end
 
     def create
-      @guardians = Guardian.new(guardian_parmas)
+      @guardian = Guardian.new(guardian_params)
+      #binding.pry
+      if @guardian.save
+        redirect_to guardian_path(@guardian)
+      else
+        render :new
+      end
     end
 
     def index
@@ -15,5 +21,10 @@ class GuardiansController < ApplicationController
     def show
       @guardians = Guardian.find(params[:id])
     end
+
+private
+  def guardian_params
+    params.require(:guardian).permit(:name, :email, :num_kids, :st_addr_1, :st_addr_2, :city, :state, :zip, :ph_num, :reviews)
+  end
 
 end
