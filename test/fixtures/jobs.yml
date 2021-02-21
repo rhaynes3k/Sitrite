@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-02-20 21:19:51
+  num_of_kids: 1
+  st_addr: MyString
+  sitter: MyString
+  duration: MyString
+  guardian: MyString
+
+two:
+  date: 2021-02-20 21:19:51
+  num_of_kids: 1
+  st_addr: MyString
+  sitter: MyString
+  duration: MyString
+  guardian: MyString

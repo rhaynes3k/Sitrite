@@ -1,0 +1,16 @@
+<h1> Create Sitter </h1>
+<%= form_for (@sitters) do |s| %>
+<%= s.label :name %>
+<%= s.text_field :name %></br>
+<%= s.label :email %>
+<%= s.email_field :email %>
+<%= s.label :age %>
+<%= s.number_field :age %></br>
+<%= s.label :zip %>
+<%= s.number_field :zip %>
+<%= s.label :ph_num %>
+<%= s.text_field :ph_num %></br>
+<%= s.label :reviews %>
+<%= s.text_area :reviews %>
+<%= s.submit %>
+<% end %>
