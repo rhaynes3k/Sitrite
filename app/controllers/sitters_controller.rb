@@ -24,7 +24,7 @@ class SittersController < ApplicationController
 private
 
   def sitter_params
-    params.require(:sitter).permit(:name, :age, :zip, :email, :reviews, :phone)
+    params.require(:sitter).permit(:name, :age, :zip, :email, :reviews, :ph_num)
   end
 
 end

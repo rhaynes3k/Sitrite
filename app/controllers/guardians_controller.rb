@@ -12,6 +12,7 @@ class GuardiansController < ApplicationController
       else
         render :new
       end
+      #binding.pry
     end
 
     def index
