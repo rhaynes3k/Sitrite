@@ -1,0 +1,9 @@
+<h1> SitRite Login </h1>
+
+<%= form_for (@users, method: 'users/login') do |l| %>
+  <%= l.label :email %>
+  <%= l.email_field :email %>
+  <%= l.lable :password %>
+  <%= l.password_field :password %>
+  <%= l.subit %>
+<% end %>

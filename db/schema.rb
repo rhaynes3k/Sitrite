@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_023410) do
+ActiveRecord::Schema.define(version: 2021_02_26_070400) do
 
   create_table "guardians", force: :cascade do |t|
     t.string "name"
@@ -53,6 +53,10 @@ ActiveRecord::Schema.define(version: 2021_02_26_023410) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "password_digest"
+    t.string "uid"
+    t.string "provider"
   end
 
 end

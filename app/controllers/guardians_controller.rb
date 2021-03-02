@@ -25,7 +25,7 @@ class GuardiansController < ApplicationController
 
 private
   def guardian_params
-    params.require(:guardian).permit(:name, :email, :num_kids, :st_addr_1, :st_addr_2, :city, :state, :zip, :ph_num, :reviews)
+    params.require(:guardian).permit(:name, :email, :num_kids, :st_addr_1, :st_addr_2, :city, :state, :zip, :ph_num)
   end
 
 end
