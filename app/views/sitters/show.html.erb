@@ -1,8 +1,10 @@
-<h1> Sitter Page </h1>
+<h1> <%= @sitters.name %> Sitter Page </h1>
 <p>
   <%= @sitters.name %></br>
   <%= @sitters.age %></br>
   <%= @sitters.zip %></br>
   <%= @sitters.email %></br>
   <%= @sitters.ph_num %></br>
+  <%= link_to('Edit', edit_sitter_path(@sitters.id)) %></br>
+
 </p>

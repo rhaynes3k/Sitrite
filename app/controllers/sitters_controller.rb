@@ -21,6 +21,16 @@ class SittersController < ApplicationController
       @sitters = Sitter.find(params[:id])
     end
 
+    def edit
+      @sitters = Sitter.find(params[:id])
+    end
+
+    def update
+      @sitters = Sitter.find(params[:id])
+      @sitters.update(sitter_params)
+      redirect_to sitter_path(@sitters)
+    end
+
 private
 
   def sitter_params

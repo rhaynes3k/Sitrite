@@ -23,6 +23,16 @@ class GuardiansController < ApplicationController
       @guardians = Guardian.find(params[:id])
     end
 
+    def edit
+      @guardians = Guardian.find(params[:id])
+    end
+
+    def update
+      @guardians = Guardian.find(params[:id])
+      @guardians.update(guardian_params)
+      redirect_to guardian_path(@guardians)
+    end
+
 private
   def guardian_params
     params.require(:guardian).permit(:name, :email, :num_kids, :st_addr_1, :st_addr_2, :city, :state, :zip, :ph_num)

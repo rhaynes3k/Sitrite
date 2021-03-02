@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :authorized, only: [:new, :create, :welcome]
+  
   def create
    @user = User.find_by(username: params[:username])
    if @user && @user.authenticate(params[:password])
@@ -10,8 +12,16 @@ class SessionsController < ApplicationController
    end
   end
 
+  def logout
+    session[:user_id] = nil
+  end
+
   def welcome
     render 'welcome.index'
+  end
+
+  def page_requires_login
+
   end
 
   def omniauth

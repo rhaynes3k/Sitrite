@@ -1,12 +1,13 @@
 <h1> Sitters </h1>
 <% @sitters.each do |s| %>
 <p>
-<%= s.name %></br>
-<%= s.age %></br>
-<%= s.zip %></br>
-<%= s.email %></br>
-<%= s.ph_num %></br>
+  <%= link_to(s.name, sitter_path(s.id)) %></li>
+    <%= s.age %></br>
+    <%= s.zip %></br>
+    <%= s.email %></br>
+    <%= s.ph_num %></br>
 <% end %>
+</br>
 </p>
 </br>
 <%= link_to('New', new_sitter_path) %>

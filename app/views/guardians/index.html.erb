@@ -1,0 +1,13 @@
+<h1> Guardian Page</h1>
+<% @guardians.each do |g| %>
+<%= link_to(g.name, guardian_path(g.id)) %></li>
+</br>
+<%= g.email %></br>
+<%= g.num_kids %></br>
+<%= g.st_addr_1 %></br>
+<%= g.st_addr_2 %></br>
+<%= g.city %></br>
+<%= g.state %></br>
+<%= g.zip %></br>
+<%= g.ph_num %></br>
+<% end %>

@@ -20,5 +20,7 @@
     <%= yield %>
     </br>
     <%= button_to("Log In With Google", '/auth/google_oauth2') %>
+    <%= link_to('logout', logout_path) %>
+    
   </body>
 </html>

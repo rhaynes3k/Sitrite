@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome.index', to: 'sessions#welcome'
+  get 'logout', to: 'sessions#logout'
+  get 'authorized', to: 'sessions#page_requires_login'
 
   resources :guardians
   resources :users

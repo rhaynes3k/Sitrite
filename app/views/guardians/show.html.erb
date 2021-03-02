@@ -1,2 +1,14 @@
-<h1> Guardian Info </h1>
-<%= @guardians %>
+<h1> <%= @guardians.name %>'s Info </h1>
+<p>
+  <strong> Name: </strong> <%= @guardians.name %></br>
+  <strong> Email: </strong> <%= @guardians.email %></br>
+  <strong> Number of kids: </strong> <%= @guardians.num_kids %></br>
+  <strong> St. Addr 1: </strong> <%= @guardians.st_addr_1 %></br>
+  <strong> St. Addr 2: </strong> <%= @guardians.st_addr_2 %></br>
+  <strong> City: </strong> <%= @guardians.city %></br>
+  <strong> State: </strong> <%= @guardians.state %></br>
+  <strong> Zip: </strong> <%= @guardians.zip %></br>
+  <strong> Phone: </strong> <%= @guardians.ph_num %>
+  <%= link_to('Edit', edit_guardian_path(@guardians.id)) %></br>
+
+</p>

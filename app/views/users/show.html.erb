@@ -1,3 +1,4 @@
 <h1> User Page </h1>
 <%= @users.name %>
 <%= @users.email %>
+<%= link_to('Edit', edit_user_path(@users.id)) %></br>
