@@ -10,5 +10,5 @@
   <strong> Zip: </strong> <%= @guardians.zip %></br>
   <strong> Phone: </strong> <%= @guardians.ph_num %>
   <%= link_to('Edit', edit_guardian_path(@guardians.id)) %></br>
-
+  <%= link_to "Delete", guardian_path(@guardians.id), :confirm => "Are you sure?", :method => :delete %>
 </p>

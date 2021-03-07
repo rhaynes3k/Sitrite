@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'welcome.index', to: 'sessions#welcome'
   get 'logout', to: 'sessions#logout'
   get 'authorized', to: 'sessions#page_requires_login'
+  #get "/users/sign_up", to: "users#new"
+  post "/users/sign_up", to: "users#new"
 
   resources :guardians
   resources :users

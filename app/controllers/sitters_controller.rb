@@ -31,6 +31,12 @@ class SittersController < ApplicationController
       redirect_to sitter_path(@sitters)
     end
 
+    def destroy
+      @sitters = Sitter.find(params[:id])
+      @sitters.destroy
+      redirect_to sitter_path
+    end
+
 private
 
   def sitter_params

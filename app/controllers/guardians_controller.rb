@@ -33,6 +33,12 @@ class GuardiansController < ApplicationController
       redirect_to guardian_path(@guardians)
     end
 
+    def delete
+      @guardians = Guardian.find(params[:id])
+      @guardians.destroy
+      redirect_to '/guardians'
+    end
+
 private
   def guardian_params
     params.require(:guardian).permit(:name, :email, :num_kids, :st_addr_1, :st_addr_2, :city, :state, :zip, :ph_num)

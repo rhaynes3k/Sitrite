@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  skip_before_action :authorized, only: [:new, :create, :sign_up]
+
+
   def new
     @users = User.new
   end
@@ -38,13 +41,17 @@ class UsersController < ApplicationController
     render 'login'
   end
 
-  def sign_in
-    render 'login'
-  end
-
   def home
     render 'home'
   end
+
+  def delete
+    @users = User.find(params[:id])
+    @users.destroy
+    redirect_to users_path
+  end
+
+
 
 private
 
