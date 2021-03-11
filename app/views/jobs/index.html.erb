@@ -1,1 +1,12 @@
-<%= flash[:message] %>
+<h2> Jobs Listing </h2>
+<% @jobs.each do |j| %>
+  <p>
+    <strong><%= label(:user, :id) %>:</strong>
+    <%= link_to(j.id, job_summary_index_path(@jobs = j.id), method: :summary) %></br>
+    <strong><%= label(:user, :date) %>:</strong></br>
+    <%= j.date %></br>
+  </p>
+<% end %>
+
+
+<%= link_to("New", new_job_path) %>

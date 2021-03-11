@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @users = User.new(user_params)
     if @users.save
-      session[:user_id] = @user.id
+      session[:user_id] = @users.id
       redirect_to user_path(@users)
       #binding.pry
 
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     render 'home'
   end
 
-  def delete
+  def destroy
     @users = User.find(params[:id])
     @users.destroy
     redirect_to users_path

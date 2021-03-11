@@ -16,10 +16,6 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def sign_up
-    render 'new'
-  end
-
   def authorized
    redirect_to '/welcome.index' unless logged_in?
   end

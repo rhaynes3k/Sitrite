@@ -1,7 +1,7 @@
 <h1> Sitters </h1>
 <% @sitters.each do |s| %>
 <p>
-  <%= link_to(s.name, sitter_path(s.id)) %></li>
+  <%= link_to(s.name, sitter_path(s.id)) %>
     <%= s.age %></br>
     <%= s.zip %></br>
     <%= s.email %></br>
