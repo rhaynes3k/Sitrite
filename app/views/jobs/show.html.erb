@@ -1,2 +1,13 @@
 <h3> Job </h3>
-@jobs.
+<strong>Job ID:</strong>
+<%= link_to(@jobs.id, job_path(@jobs.id)) %></br>
+<strong> Date: </strong> <%= @jobs.date.strftime("%m/%d/%Y") %>
+<%= @jobs.date.strftime("%r") %> </br>
+<strong> Duration: </strong> <%= @jobs.duration %> </br>
+<strong> Number of Kids: </strong> <%= @jobs.num_of_kids %> </br>
+<strong> Sitter Name: </strong> <%= link_to(@jobs.sitter.name, sitter_path(@jobs.sitter.id)) %> </br>
+<strong> Guardian Name: </strong> <%= link_to(@jobs.guardian.name, guardian_path(@jobs.guardian.id)) %> </br>
+<strong> Total: </strong>$<%= @jobs.duration.to_i * @jobs.num_of_kids * 9 %>
+</br>
+<%= link_to('Edit', edit_job_path(@jobs.id)) %></br>
+<%= link_to "Delete", sitter_path(@jobs.id), :confirm => "Are you sure?", :method => :delete %>

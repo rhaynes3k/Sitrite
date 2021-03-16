@@ -6,8 +6,12 @@
     <%= s.zip %></br>
     <%= s.email %></br>
     <%= s.ph_num %></br>
-<% end %>
-</br>
+    <strong><%= label(:user, 'Number of Jobs') %>:</strong>
+    <%= s.jobs.count %></br>
+  <% end %>
+  </br>
 </p>
+
+
 </br>
 <%= link_to('New', new_sitter_path) %>

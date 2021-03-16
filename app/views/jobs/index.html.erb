@@ -1,12 +1,20 @@
 <h2> Jobs Listing </h2>
+<div>
 <% @jobs.each do |j| %>
   <p>
     <strong><%= label(:user, :id) %>:</strong>
-    <%= link_to(j.id, job_summary_index_path(@jobs = j.id), method: :summary) %></br>
-    <strong><%= label(:user, :date) %>:</strong></br>
-    <%= j.date %></br>
+    <%= link_to(j.id, job_path(j.id)) %></br>
   </p>
+  <p>
+      <strong><%= label(:user, :date) %>:</strong>
+      <%= j.date.strftime("%m/%d/%Y") %></br>
+      <strong><%= label(:user, :time) %>:</strong>
+      <%= j.date.strftime("%r") %>
+  </p>
+    <strong><%= label(:user, 'Total') %>:</strong>
+    $<%= j.duration.to_i * j.num_of_kids * 9 %>
 <% end %>
-
-
+</br>
+</br>
+</div>
 <%= link_to("New", new_job_path) %>

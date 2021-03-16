@@ -5,9 +5,9 @@ class JobsController < ApplicationController
     end
 
     def create
-      @job = Job.new(job_params)
-      if @job.save
-        redirect_to jobs_path(@job)
+      @jobs = Job.new(job_params)
+      if @jobs.save
+        redirect_to jobs_path(@jobs)
       else
         render :new
       end
@@ -21,8 +21,14 @@ class JobsController < ApplicationController
       @jobs = Job.find(params[:id])
     end
 
-    def summary(id)
-      redirect_to summary_path(@jobs)
+    def edit
+      @jobs = Job.find(params[:id])
+    end
+
+    def update
+      @jobs = Job.find(params[:id])
+      @jobs.update(job_params)
+      redirect_to job_path(@jobs)
     end
 
 private

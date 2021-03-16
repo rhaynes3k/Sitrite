@@ -1,4 +1,4 @@
-<h1> <%= @guardians.name %>'s Info </h1>
+<h3> <%= @guardians.name %>'s Info </h3>
 <p>
   <strong> Name: </strong> <%= @guardians.name %></br>
   <strong> Email: </strong> <%= @guardians.email %></br>
@@ -8,7 +8,11 @@
   <strong> City: </strong> <%= @guardians.city %></br>
   <strong> State: </strong> <%= @guardians.state %></br>
   <strong> Zip: </strong> <%= @guardians.zip %></br>
-  <strong> Phone: </strong> <%= @guardians.ph_num %>
+  <strong> Sitters: </strong>
+    <% @guardians.jobs.map do|m| %>
+      <%= m.sitter.name if m.valid? %></br>
+    <% end %>
+  </br></br>
   <%= link_to('Edit', edit_guardian_path(@guardians.id)) %></br>
   <%= link_to "Delete", guardian_path(@guardians.id), :confirm => "Are you sure?", :method => :delete %>
 </p>
