@@ -3,7 +3,7 @@
 <% @jobs.each do |j| %>
   <p>
     <strong><%= label(:user, :id) %>:</strong>
-    <%= link_to(j.id, job_path(j.id)) %></br>
+    <%= link_to(j.id, job_path(j.id))if j.valid? %></br>
   </p>
   <p>
       <strong><%= label(:user, :date) %>:</strong>

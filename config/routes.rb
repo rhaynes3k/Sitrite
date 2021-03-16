@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'authorized', to: 'sessions#page_requires_login'
   get "/users/sign_up", to: "users#new"
   post "/users/sign_up", to: "users#new"
-
+  root 'sessions#welcome' 
   resources :guardians
   resources :users
   resources :sitters
