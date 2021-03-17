@@ -1,5 +1,8 @@
 <h1> User Page </h1>
-<%= @users.name %>
-<%= @users.email %>
+<strong> Name: </strong>
+<%= @users.name %></br>
+<strong> Email: </strong>
+<%= @users.email %></br></br>
 <%= link_to 'Edit', edit_user_path(@users.id) %></br>
 <%= link_to 'Delete', user_path(@users.id), data: { confirm: "Are you sure?" }, :method => :delete %>
+</br>
