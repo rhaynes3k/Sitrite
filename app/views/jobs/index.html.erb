@@ -1,20 +1,23 @@
 <h2> Jobs Listing </h2>
 <div>
 <% @jobs.each do |j| %>
+
   <p>
     <strong><%= label(:user, :id) %>:</strong>
-    <%= link_to(j.id, job_path(j.id))if j.valid? %></br>
+    <%= link_to j.id, job_path(j.id) if j.valid? %></br>
   </p>
   <p>
-      <strong><%= label(:user, :date) %>:</strong>
-      <%= j.date.strftime("%m/%d/%Y") %></br>
-      <strong><%= label(:user, :time) %>:</strong>
-      <%= j.date.strftime("%r") %>
+    <strong><%= label(:user, :date) %>:</strong>
+    <%= j.date.strftime("%m/%d/%Y") %></br>
+    <strong><%= label(:user, :time) %>:</strong>
+    <%= j.date.strftime("%r") %>
   </p>
     <strong><%= label(:user, 'Total') %>:</strong>
     $<%= j.duration.to_i * j.num_of_kids * 12 %>
+
+
 <% end %>
 </br>
 </br>
 </div>
-<%= link_to("New", new_job_path) %>
+<%= link_to("New", new_user_job_path(current_user)) if logged_in? %>

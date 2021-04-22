@@ -17,9 +17,9 @@
     <%end%>
     <hr>
     <%= link_to('Users', users_path) %>
-    <%= link_to('Sitters', sitters_path) %>
-    <%= link_to('Guardians', guardians_path) %>
-    <%= link_to('Jobs', jobs_path) %>
+    <%= link_to('Sitters', user_sitters_path(current_user)) if logged_in? %>
+    <%= link_to('Guardians', user_guardians_path(current_user)) if logged_in? %>
+    <%= link_to('Jobs', user_jobs_path(current_user)) if logged_in? %>
     <%= yield %>
 
     </br>

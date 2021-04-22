@@ -1,8 +1,12 @@
 class GuardiansController < ApplicationController
 
-    def new
-      @guardians = Guardian.new
+  def new
+    if params[:user_id] && !User.exists?(params[:user_id])
+      redirect_to users_path
+    else
+      @guardian = Guardian.new(user_id: params[:user_id])
     end
+  end
 
     def create
       @guardian = Guardian.new(guardian_params)
@@ -16,7 +20,12 @@ class GuardiansController < ApplicationController
     end
 
     def index
-      @guardians = Guardian.all
+      if params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        @guardians = @user.guardians
+      else
+        @guardians = Guardian.all
+      end
     end
 
     def show
@@ -40,12 +49,12 @@ class GuardiansController < ApplicationController
     end
 
     def sitter_names
-      
+
     end
 
 private
   def guardian_params
-    params.require(:guardian).permit(:name, :email, :num_kids, :st_addr_1, :st_addr_2, :city, :state, :zip, :ph_num)
+    params.require(:guardian).permit(:name, :email, :num_kids, :st_addr_1, :st_addr_2, :city, :state, :zip, :ph_num, :user_id)
   end
 
 end

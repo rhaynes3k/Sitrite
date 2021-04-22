@@ -1,8 +1,12 @@
 class SittersController < ApplicationController
 
-    def new
-      @sitters = Sitter.new
+  def new
+    if params[:user_id] && !User.exists?(params[:user_id])
+      redirect_to users_path
+    else
+      @sitter = Sitter.new(user_id: params[:user_id])
     end
+  end
 
     def create
       @sitter = Sitter.create(sitter_params)
@@ -14,11 +18,22 @@ class SittersController < ApplicationController
     end
 
     def index
-      @sitters = Sitter.all
+      if params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        @sitters = @user.sitters
+      else
+        @sitters = Sitter.all
+      end
     end
 
     def show
-      @sitters = Sitter.find(params[:id])
+      if params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        @sitter = @user.sitters.find_by(id: params[:id])
+      else
+        @sitter = Sitter.find(params[:id])
+        # binding.pry
+      end
     end
 
     def edit
