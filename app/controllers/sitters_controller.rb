@@ -37,10 +37,14 @@ class SittersController < ApplicationController
       redirect_to sitter_path
     end
 
+    def busiest_sitter
+      @bus_sit = Sitter.busiest_sitter
+    end
+
 private
 
   def sitter_params
-    params.require(:sitter).permit(:name, :age, :zip, :email, :ph_num)
+    params.require(:sitter).permit(:name, :age, :zip, :email, :ph_num, :user_id)
   end
 
 end

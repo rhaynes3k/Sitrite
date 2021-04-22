@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  #get '/bus_sit', to: 'sitters#busiest_sitter'
   get 'summary', to: 'jobs#summary'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   post "/users/sign_up", to: "users#new"
   root 'sessions#welcome'
   resources :guardians
-  resources :users
+  resources :users do
+    resources :sitters, only: [:show, :index, :edit]
+  end
   resources :sitters
   resources :jobs
 

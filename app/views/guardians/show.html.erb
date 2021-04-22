@@ -8,11 +8,12 @@
   <strong> City: </strong> <%= @guardians.city %></br>
   <strong> State: </strong> <%= @guardians.state %></br>
   <strong> Zip: </strong> <%= @guardians.zip %></br>
-  <strong> Sitters: </strong>
+  <p>
+    <strong> Sitters: </strong></br>
     <% @guardians.jobs.map do|m| %>
-      <%= m.sitter.name if m.valid? %></br>
+      <%= link_to m.sitter.name, sitter_path(m.sitter.id) if m.valid? %></br>
     <% end %>
-  </br></br>
-  <%= link_to('Edit', edit_guardian_path(@guardians.id)) %></br>
-  <%= link_to "Delete", guardian_path(@guardians.id), :confirm => "Are you sure?", :method => :delete %>
-</p>
+  </p>
+  <strong><%= link_to('Edit', edit_guardian_path(@guardians.id)) %></br></strong>
+  <strong><%= link_to "Delete", guardian_path(@guardians.id), :confirm => "Are you sure?", :method => :delete %></strong>
+  

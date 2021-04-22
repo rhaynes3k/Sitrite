@@ -1,20 +1,15 @@
 <h2> Guardian Page</h2>
-<% @guardians.each do |g| %>
-<strong><%= link_to(g.name, guardian_path(g.id)) %> </strong> </li>
-</br>
-<%= g.email %></br>
-<%= g.num_kids %></br>
-<%= g.st_addr_1 %></br>
-<%= g.st_addr_2 %></br>
-<%= g.city %></br>
-<%= g.state %></br>
-<%= g.zip %></br>
-<%= g.ph_num %>
-</br>
-
-</br>
-</ul>
-<% end %>
-
-</br>
-<%= link_to('New', new_guardian_path) %>
+<p>
+  <% @guardians.each do |g| %>
+    <strong><%= link_to(g.name, guardian_path(g.id)) %> </strong></br>
+    <strong> Email: </strong> <%= g.email %></br>
+    <strong> Number of kids: </strong> <%= g.num_kids %></br>
+    <strong> St. Addr 1: </strong> <%= g.st_addr_1 %></br>
+    <strong> St. Addr 2: </strong> <%= g.st_addr_2 %></br>
+    <strong> City: </strong> <%= g.city %></br>
+    <strong> State: </strong> <%= g.state %></br>
+    <strong> Zip: </strong> <%= g.zip %></br>
+    </br>
+  <% end %>
+</p>
+<strong><%= link_to('New Guardian', new_guardian_path) %></strong>

@@ -24,17 +24,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
-    @users = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
-    @users = User.find(params[:id])
-    @users.update(user_params)
-    redirect_to user_path(@users)
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   def login
@@ -46,8 +46,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @users = User.find(params[:id])
-    @users.destroy
+    @user = User.find(params[:id])
+    @user.destroy
     redirect_to users_path
   end
 
