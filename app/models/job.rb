@@ -9,6 +9,6 @@ class Job < ApplicationRecord
   # validates :sitter_id, presence: true
   # validates :guardian_id, presence: true
 
-  scope :busiest_sitter, -> {joins(:sitter).where("duration >= ?", 6).limit(3).order('id desc') }
+  scope :busiest_sitter, -> {joins(:sitter).where("duration >= ?", 6).limit(2).order('id desc') }
 # binding.pry
 end

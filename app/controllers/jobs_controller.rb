@@ -1,13 +1,14 @@
 class JobsController < ApplicationController
 
   before_action :find, only: [:edit, :update, :destroy]
+  # before_action :correct_user, only: [:create, :new, :show]
 
 
   def new
-    if params[:user_id] && !User.exists?(params[:user_id])
-      redirect_to users_path
-    else
+    if params[:user_id] && User.exists?(params[:user_id]) && current_user.id.to_s == params[:user_id]
       @job = Job.new(user_id: params[:user_id])
+    else
+      redirect_to users_path
     end
   end
 

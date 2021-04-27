@@ -1,6 +1,6 @@
 <h1> <%= @user.name %> User Page </h1>
-<div style="margin-left: 800px; border: solid black 2px">
-  <%= link_to 'New Job', new_user_job_path(@user) %>
+<div style="margin-left: 1000px; border: solid black 2px">
+  <%= link_to 'New Job', new_user_job_path(current_user) %>
 </div>
 
 <p><strong> Jobs List: </strong></br>

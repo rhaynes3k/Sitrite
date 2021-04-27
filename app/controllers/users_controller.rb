@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   skip_before_action :authorized, only: [:new, :create, :sign_up]
   before_action :find, only: [:show, :edit, :update, :destroy]
-
+  # before_action :current_user
   def new
     @user = User.new
   end
