@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   skip_before_action :authorized, only: [:new, :create, :sign_up]
-
+  before_action :find, only: [:show, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -24,15 +24,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end
@@ -46,14 +43,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
   end
 
-
-
 private
+
+  def find
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :username, :password)

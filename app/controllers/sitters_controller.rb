@@ -1,5 +1,7 @@
 class SittersController < ApplicationController
 
+  before_action :find, only: [:edit, :update, :destroy]
+
   def new
     if params[:user_id] && !User.exists?(params[:user_id])
       redirect_to users_path
@@ -40,22 +42,23 @@ class SittersController < ApplicationController
     end
 
     def edit
-      @sitters = Sitter.find(params[:id])
     end
 
     def update
-      @sitters = Sitter.find(params[:id])
-      @sitters.update(sitter_params)
-      redirect_to sitter_path(@sitters)
+      @sitter.update(sitter_params)
+      redirect_to sitter_path(@sitter)
     end
 
     def destroy
-      @sitters = Sitter.find(params[:id])
-      @sitters.destroy
+      @sitter.destroy
       redirect_to sitter_path
     end
 
 private
+
+  def find
+    @sitter = Sitter.find(params[:id])
+  end
 
   def sitter_params
     params.require(:sitter).permit(:name, :age, :zip, :email, :ph_num, :user_id)

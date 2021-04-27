@@ -9,11 +9,10 @@
   <strong> State: </strong> <%= @guardians.state %></br>
   <strong> Zip: </strong> <%= @guardians.zip %></br>
   <p>
-    <strong> Sitters: </strong></br>
+    <strong> Sitter Jobs: </strong></br>
     <% @guardians.jobs.map do|m| %>
-      <%= link_to m.sitter.name, sitter_path(m.sitter.id) if m.valid? %></br>
+      <%= link_to m.id, user_job_path(m.user.id, m) %> - <%= m.date.strftime("%m/%d/%Y") if m.valid? %></br>
     <% end %>
   </p>
   <strong><%= link_to('Edit', edit_guardian_path(@guardians.id)) %></br></strong>
-  <strong><%= link_to "Delete", guardian_path(@guardians.id), :confirm => "Are you sure?", :method => :delete %></strong>
-  
+  <strong><%= link_to "Delete", guardian_path(@guardians.id), data: { confirm: "Are you sure?" }, :method => :delete %></strong>

@@ -1,5 +1,8 @@
 class GuardiansController < ApplicationController
 
+  before_action :find, only: [:edit, :update, :destroy]
+
+
   def new
     if params[:user_id] && !User.exists?(params[:user_id])
       redirect_to users_path
@@ -48,11 +51,12 @@ class GuardiansController < ApplicationController
       redirect_to '/guardians'
     end
 
-    def sitter_names
-
-    end
-
 private
+
+  def find
+    @job = Guardian.find(params[:id])
+  end
+
   def guardian_params
     params.require(:guardian).permit(:name, :email, :num_kids, :st_addr_1, :st_addr_2, :city, :state, :zip, :ph_num, :user_id)
   end
