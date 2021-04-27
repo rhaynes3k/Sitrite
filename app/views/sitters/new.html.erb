@@ -1,5 +1,16 @@
 <h1> Create Sitter </h1>
-<%= form_for (@sitters) do |s| %>
+<% if @sitter.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@sitter.errors.count, "error") %> prohibited this sitter from being saved:</h2>
+
+    <ul>
+      <% @sitter.errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for (@sitter) do |s| %>
 <%= s.label :name %>
 <%= s.text_field :name %></br>
 <%= s.label :email %>
