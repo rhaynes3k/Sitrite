@@ -1,20 +1,20 @@
-<h1> <%= @sitters.name %> Sitter Page </h1>
+<h1> <%= @sitter.name %> Sitter Page </h1>
 <p>
   <strong> Name: </strong></br>
-  <%= @sitters.name %></br>
+  <%= @sitter.name %></br>
   <strong> Age: </strong>
-  <%= @sitters.age %></br>
+  <%= @sitter.age %></br>
   <strong> Zip Code: </strong></br>
-  <%= @sitters.zip %></br>
+  <%= @sitter.zip %></br>
   <strong> Email: </strong>
-  <%= @sitters.email %></br>
+  <%= @sitter.email %></br>
   <strong> Ph Num: </strong>
-  <%= @sitters.ph_num %></br>
+  <%= @sitter.ph_num %></br>
   <p><strong> Jobs: </strong></br>
-    <% @sitters.jobs.map do|j| %>
+    <% @sitter.jobs.map do|j| %>
     <strong><%= j.date.strftime("%m/%d/%Y") if j.valid? %></br></strong>
       <%= link_to j.guardian.name, guardian_path(j.guardian.id) if j.valid? %></br>
     <% end %>
   </p>
-  <strong><%= link_to('Edit', edit_sitter_path(@sitters.id)) %></br></strong>
-  <strong><%= link_to "Delete", sitter_path(@sitters.id), :confirm => "Are you sure?", :method => :delete %></strong>
+  <strong><%= link_to('Edit', edit_sitter_path(@sitter.id)) %></br></strong>
+  <strong><%= link_to "Delete", sitter_path(@sitter.id), :confirm => "Are you sure?", :method => :delete %></strong>

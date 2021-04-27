@@ -24,6 +24,9 @@ class SittersController < ApplicationController
       else
         @sitters = Sitter.all
       end
+
+      @busiest_sitter = Job.busiest_sitter
+
     end
 
     def show
@@ -50,10 +53,6 @@ class SittersController < ApplicationController
       @sitters = Sitter.find(params[:id])
       @sitters.destroy
       redirect_to sitter_path
-    end
-
-    def busiest_sitter
-      @bus_sit = Sitter.busiest_sitter
     end
 
 private

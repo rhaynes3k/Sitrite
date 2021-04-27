@@ -11,36 +11,27 @@ class JobsController < ApplicationController
     def create
       @job = Job.new(job_params)
       if @job.save
-        redirect_to user_jobs_path(@job)
+        redirect_to jobs_path(@job)
       else
         render :new
       end
     end
 
     def index
-      if params[:user_id]
-        @user = User.find_by(id: params[:user_id])
-        @jobs = @user.jobs.find_by(id: params[:id])
-        binding.pry
-        
-        if @user.nil?
-          redirect_to job_path(@jobs)
-
-        end
-      else
-        @jobs = Job.all
-      end
+      # if params[:user_id]
+      #   @user = User.find_by(id: params[:user_id])
+      #   if @user.nil?
+          @jobs = Job.all
+      #   else
+      #     @jobs = @user.jobs.find_by(id: params[:id])
+      #   end
+      # end
     end
 
     def show
-      if params[:user_id]
-        @user = User.find_by(id: params[:user_id])
-        @job = @user.jobs.find_by(id: params[:id])
-      else
-        @job = Job.find(params[:id])
-        # binding.pry
-      end
+      @job = Job.find_by(id: params[:id])
     end
+
 
     def edit
       @job = Job.find(params[:id])
@@ -50,6 +41,12 @@ class JobsController < ApplicationController
       @job = Job.find(params[:id])
       @job.update(job_params)
       redirect_to job_path(@job)
+    end
+
+    def destroy
+      @job = Job.find(params[:id])
+      @job.destroy
+      redirect_to jobs_path
     end
 
 private

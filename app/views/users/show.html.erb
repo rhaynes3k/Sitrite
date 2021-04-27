@@ -1,4 +1,14 @@
 <h1> <%= @user.name %> User Page </h1>
+<div style="margin-left: 800px; border: solid black 2px">
+  <%= link_to 'New Job', new_user_job_path(@user) %>
+</div>
+
+<p><strong> Jobs List: </strong></br>
+  Jobs: <%= @user.jobs.count %></br>
+  <% @user.jobs.map do|j| %>
+  <%= link_to j.date.strftime("%m/%d/%Y"), user_job_path(j.user.id, j) if j.valid? %></br>
+  <% end %>
+</p>
 <strong> Name: </strong>
 <%= @user.name %></br>
 <strong> Email: </strong>

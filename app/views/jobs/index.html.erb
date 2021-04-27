@@ -3,9 +3,10 @@
 <% @jobs.each do |j| %>
 
   <p>
-    <strong><%= label(:user, :id) %>:</strong>
-    <%= link_to j.id, job_path(j.id) if j.valid? %></br>
-  </p>
+    <strong><%= label(j, :id) %>:</strong>
+
+    <%= link_to j.id, user_job_path(j.user.id, j.id) if j.valid? %>
+
   <p>
     <strong><%= label(:user, :date) %>:</strong>
     <%= j.date.strftime("%m/%d/%Y") %></br>

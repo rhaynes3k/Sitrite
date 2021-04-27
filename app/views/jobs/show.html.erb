@@ -1,6 +1,6 @@
 <h3> Job </h3>
 <strong>Job ID:</strong>
-<%= link_to(@job.id, job_path(@job.id)) %></br>
+<%= link_to(@job.id, user_job_path(@job.id)) %></br>
 <strong> Date: </strong> <%= @job.date.strftime("%m/%d/%Y") %>
 <%= @job.date.strftime("%r") %> </br>
 <strong> Duration: </strong> <%= @job.duration %> </br>
@@ -10,4 +10,4 @@
 <strong> Total: </strong>$<%= @job.duration.to_i * @job.num_of_kids * 12 %>
 </br>
 <strong><%= link_to('Edit', edit_job_path(@job.id)) %></br></strong></br>
-<strong><%= link_to "Delete", sitter_path(@job.id), :confirm => "Are you sure?", :method => :delete %></strong>
+<strong><%= link_to "Delete", job_path(@job.id), :confirm => "Are you sure?", :method => :delete %></strong>
