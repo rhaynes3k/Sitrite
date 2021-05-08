@@ -7,6 +7,7 @@ class JobsController < ApplicationController
   def new
     if params[:user_id] && User.exists?(params[:user_id]) && current_user.id.to_s == params[:user_id]
       @job = Job.new(user_id: params[:user_id])
+      sitter_present?
     else
       redirect_to users_path
     end
@@ -49,7 +50,7 @@ class JobsController < ApplicationController
     end
 
     def destroy
-      if @job.user_id == current_user.id        
+      if @job.user_id == current_user.id
         @job.destroy
         redirect_to jobs_path
       else
@@ -65,6 +66,15 @@ private
 
   def job_params
     params.require(:job).permit(:date, :duration, :sitter_id, :guardian_id, :num_of_kids, :user_id)
+  end
+
+  def sitter_present?
+    if Sitter.count < 1
+      redirect_to new_sitter_path
+    elsif
+      Guardian.count < 1
+        redirect_to new_guardian_path
+    end
   end
 
 end
