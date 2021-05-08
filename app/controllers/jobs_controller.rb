@@ -38,6 +38,9 @@ class JobsController < ApplicationController
 
 
     def edit
+      if @job.user_id != current_user.id
+        redirect_to jobs_path
+      end
     end
 
     def update
@@ -46,8 +49,12 @@ class JobsController < ApplicationController
     end
 
     def destroy
-      @job.destroy
-      redirect_to jobs_path
+      if @job.user_id == current_user.id        
+        @job.destroy
+        redirect_to jobs_path
+      else
+        redirect_to jobs_path
+      end
     end
 
 private

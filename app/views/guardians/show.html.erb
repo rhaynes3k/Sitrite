@@ -1,18 +1,18 @@
-<h2> <%= @guardians.name %>'s Info </h2>
+<h2> <%= @guardian.name %>'s Info </h2>
 <p>
-  <strong> Name: </strong> <%= @guardians.name %></br>
-  <strong> Email: </strong> <%= @guardians.email %></br>
-  <strong> Number of kids: </strong> <%= @guardians.num_kids %></br>
-  <strong> St. Addr 1: </strong> <%= @guardians.st_addr_1 %></br>
-  <strong> St. Addr 2: </strong> <%= @guardians.st_addr_2 %></br>
-  <strong> City: </strong> <%= @guardians.city %></br>
-  <strong> State: </strong> <%= @guardians.state %></br>
-  <strong> Zip: </strong> <%= @guardians.zip %></br>
+  <strong> Name: </strong> <%= @guardian.name %></br>
+  <strong> Email: </strong> <%= @guardian.email %></br>
+  <strong> Number of kids: </strong> <%= @guardian.num_kids %></br>
+  <strong> St. Addr 1: </strong> <%= @guardian.st_addr_1 %></br>
+  <strong> St. Addr 2: </strong> <%= @guardian.st_addr_2 %></br>
+  <strong> City: </strong> <%= @guardian.city %></br>
+  <strong> State: </strong> <%= @guardian.state %></br>
+  <strong> Zip: </strong> <%= @guardian.zip %></br>
   <p>
     <strong> Sitter Jobs: </strong></br>
-    <% @guardians.jobs.map do|m| %>
+    <% @guardian.jobs.map do|m| %>
       <%= link_to m.id, user_job_path(m.user.id, m) %> - <%= m.date.strftime("%m/%d/%Y") if m.valid? %></br>
     <% end %>
   </p>
-  <strong><%= link_to('Edit', edit_guardian_path(@guardians.id)) %></br></strong>
-  <strong><%= link_to "Delete", guardian_path(@guardians.id), data: { confirm: "Are you sure?" }, :method => :delete %></strong>
+  <strong><%= link_to('Edit', edit_guardian_path(@guardian.id)) %></br></strong>
+  <strong><%= link_to "Delete", guardian_path(@guardian.id), data: { confirm: "Are you sure?" }, :method => :delete %></strong>

@@ -1,6 +1,6 @@
 class GuardiansController < ApplicationController
 
-  before_action :find, only: [:edit, :update, :destroy]
+  before_action :find, only: [:show, :edit, :update, :destroy]
 
 
   def new
@@ -32,21 +32,17 @@ class GuardiansController < ApplicationController
     end
 
     def show
-      @guardians = Guardian.find(params[:id])
     end
 
     def edit
-      @guardians = Guardian.find(params[:id])
     end
 
     def update
-      @guardians = Guardian.find(params[:id])
       @guardians.update(guardian_params)
       redirect_to guardian_path(@guardians)
     end
 
     def delete
-      @guardians = Guardian.find(params[:id])
       @guardians.destroy
       redirect_to '/guardians'
     end
@@ -54,7 +50,7 @@ class GuardiansController < ApplicationController
 private
 
   def find
-    @job = Guardian.find(params[:id])
+    @guardian = Guardian.find(params[:id])
   end
 
   def guardian_params

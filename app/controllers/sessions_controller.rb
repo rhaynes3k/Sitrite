@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
   skip_before_action :authorized, only: [:new, :create, :welcome, :omniauth, :sign_up]
 
   def create
-   @user = User.find_by(username: params[:username])
-   if @user && @user.authenticate(params[:password])
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to '/users.index'
-   else
+      redirect_to user_path(@user)
+    else
       redirect_to '/login'
-   end
+    end
   end
 
   def logout
@@ -21,9 +21,9 @@ class SessionsController < ApplicationController
     render 'welcome.index'
   end
 
-  def page_requires_login
-    redirect_to '/login'
-  end
+  # def page_requires_login
+  #   redirect_to '/login'
+  # end
 
   def omniauth
     #binding.pry

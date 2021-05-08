@@ -2,7 +2,6 @@
 <% if @job.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
-
     <ul>
       <% @job.errors.each do |error| %>
         <li><%= error %></li>
@@ -11,17 +10,5 @@
   </div>
 <% end %>
 <%= form_for (@job) do |j| %>
-<%= j.label :date %>
-<%= j.datetime_local_field :date %></br>
-<%= j.label :num_of_kids %>
-<%= j.number_field :num_of_kids %>
-<%= j.label :duration %>
-<%= j.text_field :duration %></br>
-<%= j.label :sitter_id %>
-<%= j.collection_select :sitter_id, Sitter.order(:name),:id,:name, include_blank: true %>
-<%= j.label :guardian_id %>
-<%= j.collection_select :guardian_id, Guardian.order(:name),:id,:name, include_blank: true %>
-<%= j.hidden_field :user_id %>
-</br>
-<%= j.submit %>
+  <%= render partial: 'form', locals: { j: j } %>
 <% end %>

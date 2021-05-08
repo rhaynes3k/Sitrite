@@ -12,10 +12,6 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
-  def logout
-
-  end
-
   def authorized
    redirect_to '/welcome.index' unless logged_in?
   end

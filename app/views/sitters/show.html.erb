@@ -17,4 +17,4 @@
     <% end %>
   </p>
   <strong><%= link_to('Edit', edit_sitter_path(@sitter.id)) %></br></strong>
-  <strong><%= link_to "Delete", sitter_path(@sitter.id), :confirm => "Are you sure?", :method => :delete %></strong>
+  <strong><%= link_to "Delete", sitter_path(@sitter.id), data: { confirm: "Are you sure?" }, :method => :delete %></strong>
