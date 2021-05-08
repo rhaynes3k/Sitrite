@@ -30,13 +30,14 @@ class SessionsController < ApplicationController
     #provider = auth['provider']
     #name = auth['info']['name']
     user = User.create_from_omniauth(auth)
+    #binding.pry
 
     if user.valid?
       session[:user_id] = user.id
-      redirect_to new_job_path
+      redirect_to users_path
     else
       flash[:message] = user.errors.full_messages.join("")
-      redirect_to jobs_path
+      redirect_to root_path
     end
   end
 

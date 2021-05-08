@@ -4,6 +4,10 @@ module JobsHelper
     user == current_user
   end
 
+  def sitter_present?
+    if @job.si
+  end
+
 private
 
   # confirms the correct user.
