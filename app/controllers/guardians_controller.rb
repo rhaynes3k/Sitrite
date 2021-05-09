@@ -38,13 +38,13 @@ class GuardiansController < ApplicationController
     end
 
     def update
-      @guardians.update(guardian_params)
-      redirect_to guardian_path(@guardians)
+      @guardian.update(guardian_params)
+      redirect_to guardian_path(@guardian)
     end
 
-    def delete
-      @guardians.destroy
-      redirect_to '/guardians'
+    def destroy
+      @guardian.destroy
+      redirect_to guardians_path
     end
 
 private

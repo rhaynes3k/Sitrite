@@ -1,4 +1,13 @@
 <h2> Create Guardian </h2>
+
+<strong>
+  <% flash.each do |type, msg| %>
+  <div id="cond">
+    <%= msg %>
+  </div>
+<% end %>
+</strong></br>
+
 <% if @guardian.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@guardian.errors.count, "error") %> prohibited this guardian from being saved:</h2>

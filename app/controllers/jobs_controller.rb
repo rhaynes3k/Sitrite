@@ -70,10 +70,10 @@ private
 
   def sitter_present?
     if Sitter.count < 1
-      redirect_to new_sitter_path
+      redirect_to new_sitter_path, notice: "No active sitters. Please add a sitter."
     elsif
       Guardian.count < 1
-        redirect_to new_guardian_path
+        redirect_to new_guardian_path, notice: "No active guardians. Please add a guardian."
     end
   end
 

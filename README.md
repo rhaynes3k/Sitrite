@@ -5,6 +5,7 @@ SitRite is a babysitter staffing software that allows multiple users(recruiters)
 
 Users can add sitters, guardians, and/or create sitter jobs from existing pools of each.
 
+See blog: https://code-a-holx.blogspot.com/2021/05/on-rails.html
 
 Prerequisites
 
@@ -12,13 +13,17 @@ Before you begin, ensure you have met the following requirements:
 You have installed the latest version of ruby.
 You have read this README if full.
 
+Using <project_name>
+To use SitRite, follow these steps:
+  Fork the following in your terminal. https://github.com/rhaynes3k/Sitrite.git
+
 Contributing to SitRite
 To contribute to SitRite, follow these steps:
 
 Fork this repository.
-Create a branch: git checkout -b <branch_name>.
+Create a branch: git checkout -b master.
 Make your changes and commit them: git commit -m '<commit_message>'
-Push to the original branch: git push origin <project_name>/<location>
+Push to the original branch: git push origin <SitRite/https://github.com/rhaynes3k/Sitrite.git
 Create the pull request.
 Alternatively see the GitHub documentation on creating a pull request.
 

@@ -51,7 +51,7 @@ class SittersController < ApplicationController
 
     def destroy
       @sitter.destroy
-      redirect_to sitter_path
+      redirect_to sitters_path
     end
 
 private
