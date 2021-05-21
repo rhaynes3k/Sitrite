@@ -11,7 +11,7 @@
     <h2><%= pluralize(@sitter.errors.count, "error") %> prohibited this sitter from being saved:</h2>
 
     <ul>
-      <% @sitter.errors.each do |error| %>
+      <% @sitter.errors.full_messages.each do |error| %>
         <li><%= error %></li>
       <% end %>
     </ul>

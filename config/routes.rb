@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   get 'summary', to: 'jobs#summary'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  get 'welcome.index', to: 'sessions#welcome'
+  get 'home', to: 'sessions#welcome'
   get 'logout', to: 'sessions#logout'
   get 'authorized', to: 'sessions#page_requires_login'
   get "/users/sign_up", to: "users#new"
   post "/users/sign_up", to: "users#new"
-  root 'sessions#welcome.index'
+  root 'sessions#welcome'
   # get 'sitters/busiest', to: "sitters#busiest_sitter"
   resources :users do
     resources :sitters, only: [:show, :index, :edit]

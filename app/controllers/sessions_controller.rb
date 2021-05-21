@@ -14,16 +14,12 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    redirect_to '/login'
+    redirect_to root_path
   end
 
   def welcome
-    render 'welcome.index'
+    render 'home'
   end
-
-  # def page_requires_login
-  #   redirect_to '/login'
-  # end
 
   def omniauth
     #binding.pry

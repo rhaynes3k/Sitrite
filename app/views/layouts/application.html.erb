@@ -12,23 +12,25 @@
   <body style="background-color:lightblue;">
     <div style="background-color:#FDD7FA;">
       <center><h1> SitRite </h1>
-      <h3> Sitter Software </h3></center>
+      <h3> Sitter Software Application </h3></center>
       <% if logged_in? %>
         <h5 style="text-align: right;">You are logged in as: <%= current_user.name %></h5>
       <%end%>
     </div>
     <hr>
     <div style="background-color: #70C14D;">
-    <%= link_to('Users', users_path) %>
-    <%= link_to('Sitters', sitters_path) %>
-    <%= link_to('Guardians', guardians_path) %>
-    <%= link_to('Jobs', jobs_path) %>
+      <!-- <div>
+        <strong><%= link_to('Home', home_path) %></strong>
+      </div> -->
+      <%= link_to('Users', users_path) %>
+      <%= link_to('Sitters', sitters_path) %>
+      <%= link_to('Guardians', guardians_path) %>
+      <%= link_to('Jobs', jobs_path) %>
     <%= yield %>
-
+    <%= link_to 'Back', :back %>
     </br>
     <% if logged_in? %>
       <%= button_to('Logout', logout_path, :method => :get) %>
-      <%= link_to 'Back', :back %>
     <% end %>
     </div>
   </body>

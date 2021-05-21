@@ -13,7 +13,7 @@
     <h2><%= pluralize(@guardian.errors.count, "error") %> prohibited this guardian from being saved:</h2>
 
     <ul>
-      <% @guardian.errors.each do |error| %>
+      <% @guardian.errors.full_messages.each do |error| %>
         <li><%= error %></li>
       <% end %>
     </ul>

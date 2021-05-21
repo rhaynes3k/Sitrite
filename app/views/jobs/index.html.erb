@@ -6,7 +6,6 @@
     <strong><%= label(j, :id) %>:</strong>
 
     <%= link_to j.id, user_job_path(j.user.id, j.id) if j.valid? %>
-<%= binding.pry %>
   <p>
     <strong><%= label(:user, :date) %>:</strong>
     <%= j.date.strftime("%m/%d/%Y") %></br>
